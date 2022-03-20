@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head',{tittle:"Agregar Producto"}) %>
+  <%- include('../partials/head',{tittle:"Crear producto"})%> <%-
+  include('../partials/head',{tittle:"Agregar Producto"}) %>
   <body>
     <%- include('../partials/header') %>
 
@@ -10,6 +11,7 @@
         enctype="multipart/form-data"
         method="POST"
         class="formAdd"
+        id="form-productNew"
       >
         <h2>Agregar Producto</h2>
         <p>Titulo del producto</p>
@@ -17,6 +19,7 @@
           type="text"
           name="nombre"
           placeholder="Nombre del libro, manga o comic"
+          id="nameEP"
         />
         <div id="name-error">
           <% if (locals.errors && errors.nombre) { %>
@@ -30,7 +33,17 @@
         <p>Precio</p>
         <input type="number" name="precio" placeholder="$000000" />
         <p>Descripcion</p>
-        <textarea name="descripcion" id="" cols="30" rows="5"></textarea>
+        <textarea
+          name="descripcion"
+          id="descriptionEP"
+          cols="30"
+          rows="5"
+        ></textarea>
+        <div id="description-error">
+          <% if (locals.errors && errors.descripcion) { %>
+          <p class="mensajesError"><%= errors.descripcion.msg %></p>
+          <% } %>
+        </div>
 
         <p>Categoria</p>
         <select name="categoria">
@@ -67,14 +80,26 @@
           <% }) %>
         </select>
         <p>Portada</p>
-        <input type="file" name="portada" accept=".png, .jpeg, .jpg, .gif" />
+
+        <input
+          type="file"
+          id="imageEP"
+          name="portada"
+          accept=".png, .jpeg, .jpg"
+        />
+        <div id="image-error">
+          <% if (locals.errors && errors.image) { %>
+          <p class="mensajesError"><%= errors.image.msg%></p>
+          <% } %>
+        </div>
 
         <div class="botones-agregar">
-          <input type="submit" value="Agregar">
+          <input type="submit" value="Agregar" />
         </div>
       </form>
     </main>
 
     <%- include('../partials/footer') %>
+    <script src="/js/validationNewProduct.js"></script>
   </body>
 </html>

@@ -6,6 +6,8 @@ const session = require("express-session");
 const userLoggedMiddleware = require("./src/middleware/userLoggedMiddleware");
 const cookies = require("cookie-parser");
 
+
+
 app.use(
   session({
     secret: "It's a secret",
@@ -32,10 +34,19 @@ app.listen(process.env.PORT || 3000, () => {
   console.log("El servidor inicio correctamente");
 });
 
+
 const mainRutas = require("./src/routes/mainRutas");
 const userRutas = require("./src/routes/userRutas");
 const productRutas = require("./src/routes/productRutas");
 
+//  Seccion Ruta de API
+const apiUsersRouter = require('./src/routes/api/users')
+
+//  Seccion de API
+app.use(apiUsersRouter);
+
 app.use("/", mainRutas);
 app.use("/users", userRutas);
 app.use("/products", productRutas);
+
+

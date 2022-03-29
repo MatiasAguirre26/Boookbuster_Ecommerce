@@ -16,11 +16,11 @@ const usersControllers = {
                     email: data.email,
                     detail: `/users/profile/${data.id}`
                 };
-                users.push(usuario);
+                usuarios.push(usuario);
             })
             res.status(200).json( {
                 data: {
-                    count: users.length,
+                    count: usuarios.length,
                     status:200
                 },
                 usuarios
@@ -35,7 +35,7 @@ const usersControllers = {
                 first_name: data.first_name,
                 last_name: data.last_name,
                 email: data.email,
-                avatar: `/imges/avatars/${data.avatar}`
+                avatar: `http://localhost:3001/images/avatars/${data.avatar}`
             };
             res.status(200).json( {
                 meta: {

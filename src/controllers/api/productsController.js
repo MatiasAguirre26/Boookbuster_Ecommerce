@@ -4,13 +4,13 @@ const sequelize = db.sequelize;
 const productsController = {
     'list': (req, res) => {
         let mangas = db.Product.count({
-            where: { category: "Mangas" }
+            where: { categories_id: 1 }
         });
         let comics = db.Product.count({
-            where: { category: "Comics" }
+            where: { categories_id: 2 }
         });
         let libros = db.Product.count({
-            where: { category: "Libros" }
+            where: { categories_id: 3 }
         });
 
         Promise.all([mangas, comics, libros])
@@ -37,11 +37,11 @@ const productsController = {
                 let countCategories = [
                     {
                         name: "Comics",
-                        amount: data[0]
+                        amount: data[1]
                     },
                     {
                         name: "Mangas",
-                        amount: data[1]
+                        amount: data[0]
                     },
                     {
                         name: "Libros",
@@ -75,7 +75,7 @@ const productsController = {
                     sizes_id: data.sizes_id,
                     editorials_id: data.editorials_id,
                     states_id: data.states_id,
-                    detail: `http://localhost:3000/products/detailProduct/${data.id}`
+                    detail: `http://localhost:3001/products/detailProduct/${data.id}`
                 };
                 res.status(200).json( {
                     meta: {

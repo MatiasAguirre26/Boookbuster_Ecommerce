@@ -30,7 +30,7 @@ app.use(express.json());
 // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 app.use(methodOverride("_method"));
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("El servidor inicio correctamente");
 });
 
@@ -42,12 +42,12 @@ const productRutas = require("./src/routes/productRutas");
 //  Seccion Ruta de API
 const apiUsersRouter = require('./src/routes/api/users')
 const apiProductsRouter = require('./src/routes/api/products')
-const apiProductShopRouter = require('./src/routes/api/productShop')
+
 
 //  Seccion de API
 app.use(apiUsersRouter);
 app.use(apiProductsRouter);
-app.use(apiProductShopRouter);
+
 
 app.use("/", mainRutas);
 app.use("/users", userRutas);

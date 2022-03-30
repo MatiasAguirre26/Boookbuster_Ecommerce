@@ -14,7 +14,7 @@ const usersControllers = {
                     first_name: data.first_name,
                     last_name: data.last_name,
                     email: data.email,
-                    detail: `/users/profile/${data.id}`
+                    detail: `/api/users/${data.id}`
                 };
                 usuarios.push(usuario);
             })
@@ -40,7 +40,7 @@ const usersControllers = {
             res.status(200).json( {
                 meta: {
                     status:200,
-                    url: "api/users/:id"
+                    url: "api/users/"+data.id
                 },
                 usuarios
             });

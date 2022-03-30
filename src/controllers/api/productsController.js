@@ -2,7 +2,9 @@ const db = require('../../database/models');
 const sequelize = db.sequelize;
 
 const productsController = {
+
     'list': (req, res) => {
+        //aca cuento con la funcion count, cuantos productos existen con el categories_id = 1, lo que significa cuantos mangas hay
         let mangas = db.Product.count({
             where: { categories_id: 1 }
         });
@@ -13,10 +15,12 @@ const productsController = {
             where: { categories_id: 3 }
         });
 
+        //
         Promise.all([mangas, comics, libros])
         .then(data => {
             db.Product.findAll()
             .then(allProducts => {
+                
                 let products = [];
                 allProducts.forEach(data => {
                     let product = {
@@ -24,13 +28,7 @@ const productsController = {
                         name: data.name,
                         price: data.price,
                         description: data.description,
-                        stock_min: data.stock_min,
-                        stock_max: data.stock_max,
-                        categories_id: data.categories_id,
-                        sizes_id: data.sizes_id,
-                        detail_id: data.detail_id,
-                        editorials_id: data.editorials_id,
-                        states_id: data.states_id,
+                        detail: "api/products"+data.id
                     };
                     products.push(product);
                 })
@@ -53,7 +51,6 @@ const productsController = {
                         status:200,
                         count: products.length,
                         countByCategory: countCategories,
-                        url: "api/products"
                     },
                     products
                 })

@@ -138,7 +138,7 @@ section.top-header {
   top:0%;
   left:0%;
   display:none;
-  z-index: 2;
+  z-index: 6;
   color: rgb(148, 209, 172);
 }
 .burgerMenuHide ul{

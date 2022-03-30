@@ -28,7 +28,7 @@ const productsController = {
                         name: data.name,
                         price: data.price,
                         description: data.description,
-                        detail: "api/products"+data.id
+                        detail: "api/products/"+data.id
                     };
                     products.push(product);
                 })

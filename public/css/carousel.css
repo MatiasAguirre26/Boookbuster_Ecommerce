@@ -201,15 +201,15 @@
 
 
 .slide:nth-child(1){
-	background-image:url(/images/banner2.jpg);
+	background-image:url(/images/banner1.jpg);
  }
 
 .slide:nth-child(2){
-	background-image:url(/images/banner3.jpg);
+	background-image:url(/images/banner2.jpg);
 }
 
 .slide:nth-child(3){
-	background-image:url(/images/banner4.jpg);
+	background-image:url(/images/banner3.jpg);
  }
 
 .carousel-container{

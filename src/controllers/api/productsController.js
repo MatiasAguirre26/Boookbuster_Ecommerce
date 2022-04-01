@@ -55,14 +55,15 @@ const productsController = {
                     products
                 })
             })
-        })
+        }).catch(error => {res.send({error:'Not found'});})
+
     },
     'detail': (req, res) => {
         db.Product.findByPk(req.params.id,{
-            include : ["images"]
+            include : ["images","category"]
         })
-            .then(data => {
-
+        .then(data => {
+                
                 let product = {
                     id: data.id,
                     name: data.name,
@@ -74,6 +75,7 @@ const productsController = {
                     sizes_id: data.sizes_id,
                     editorials_id: data.editorials_id,
                     states_id: data.states_id,
+                    categories : data.category.name,
                     image: `http://localhost:3001/images/products/`+ data.images[0].name
                 };
                 res.status(200).json( {
@@ -83,7 +85,8 @@ const productsController = {
                     },
                     product
                 });
-            });
+            }).catch(error => {res.send({error:'Not found'});})
+
     }
 }
 

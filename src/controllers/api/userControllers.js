@@ -25,7 +25,8 @@ const usersControllers = {
                 },
                 usuarios
             })
-        })
+        }).catch(error => {res.send({error:'Not found'});})
+
     },
     "detail": (req, res)=>{
         db.User.findByPk(req.params.id)
@@ -44,7 +45,8 @@ const usersControllers = {
                 },
                 usuarios
             });
-        });
+        }).catch(error => {res.send({error:'Not found'});})
+
     }
 }
 module.exports = usersControllers

@@ -298,16 +298,23 @@ div.historial-menu {
   color: #170312;
 }
 
-div.spyFma {
+#box-product {
   display: flex;
   justify-content: center;
   position: relative;
   margin-bottom: 10px;
+  overflow: hidden;
 }
-.spyFma img {
-  width: 90%;
+#box-product__imgZ {
+  min-width: 90%;
+  max-width: 90%;
+  position: absolute;
+  left: 50%;
+  top:50%;
   margin-bottom: 20px;
-  box-shadow: -10px 5px 10px rgb(0 0 0 / 30%);
+  box-shadow: -10px 5px 10px rgba(66, 55, 55, 0.3);
+  transform: translate(-50%, -50%);
+  pointer-events:none ;
 }
 .detalle-prod {
   padding: 15px;

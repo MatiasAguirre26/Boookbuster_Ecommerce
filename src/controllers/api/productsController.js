@@ -60,7 +60,7 @@ const productsController = {
     },
     'detail': (req, res) => {
         db.Product.findByPk(req.params.id,{
-            include : ["images","category"]
+            include : ["images","category","state","editorial","size"]
         })
         .then(data => {
                 
@@ -76,6 +76,9 @@ const productsController = {
                     editorials_id: data.editorials_id,
                     states_id: data.states_id,
                     categories : data.category.name,
+                    state : data.state.type,
+                    editorial : data.editorial.name,
+                    size : data.size.format,
                     image: `http://localhost:3001/images/products/`+ data.images[0].name
                 };
                 res.status(200).json( {

@@ -12,4 +12,8 @@ En caso de por algun motivo los mails no funcionen, se pueden registrar(el rol p
 
 
 
-Herramienta para orginzar el proyecto: https://trello.com/b/BhqwBW3Y/proyecto
+# Trello
+ https://trello.com/b/BhqwBW3Y/proyecto
+
+# DashBoard 
+https://github.com/Ema-nunez/grupo11_bookbuster_Dashboard
